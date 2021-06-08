@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view("/","home")->name("home");
+Route::view("/ver_consolas","ver_consolas")->name("ver_consolas");
+Route::view("/ver_juegos","ver_juegos")->name("ver_juegos");
+Route::view("/agregar_juego","agregar_juego")->name("agregar_juego");
