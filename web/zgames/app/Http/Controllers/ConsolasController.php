@@ -23,12 +23,13 @@ class ConsolasController extends Controller
     }
 //Esta funcion va a registrar una consola de ejemplo en la bd
 //MEJORAR ESTO PARA QUE NO SEA UN EJEMPLO
-    public function crearConsola(){
+    public function crearConsola(Request $request){
+        $input = $request->all();   //Genera un arreglo con todo lo que mando la interfaz
     //Equivalente a un insert
         $consola = new Consola();
-        $consola->nombre = "Nintendo Switch";
-        $consola->marca = "Nintendo";
-        $consola->anio = 2015;
+        $consola->nombre =$input["nombre"];
+        $consola->marca =$input["marca"];
+        $consola->anio = $input["anio"];
 
         $consola->save();
         return $consola;
