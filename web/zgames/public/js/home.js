@@ -10,8 +10,10 @@ const cargarMarcas = async()=>{
         marcaSelect.appendChild(option);
     });
 };
-
-cargarMarcas();
+//Esto ejecuta un codigo asegurandose que el total de la pagina incluido todos sus recursos esten cargado antes de ejecutar
+document.addEventListener("DOMContentLoaded",()=>{
+    cargarMarcas();
+});
 
 document.querySelector("#registrar-btn").addEventListener("click",async ()=>{
     let nombre = document.querySelector("#nombre-txt").value;
@@ -22,5 +24,6 @@ document.querySelector("#registrar-btn").addEventListener("click",async ()=>{
     consola.marca = marca;
     consola.anio = anio;
     let res = await crearConsola(consola);
-    Swal.fire("Consola Creada","Consola creada exitosamente","info");
+    await Swal.fire("Consola Creada","Consola creada exitosamente","info");
+    window.location.href="ver_consolas";
 });
