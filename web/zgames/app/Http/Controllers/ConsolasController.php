@@ -34,4 +34,14 @@ class ConsolasController extends Controller
         $consola->save();
         return $consola;
     }
+
+    public function eliminarConsola(Request $request){
+        $input = $request->all();
+        $id = $input["id"];
+        //1. Ir a buscar el registro a la bd
+        $consola = Consola::findOrFail($id);
+        //2. Para eliminar llamamos al metodo delete 
+        $consola->delete();
+        return "ok";
+    }
 }
