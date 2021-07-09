@@ -1,4 +1,5 @@
 const getConsolas = async (filtro = "todos")=>{
+    let resp;
     if(filtro == "todos"){
         resp = await axios.get("api/consolas/get");
     }else{
