@@ -21,6 +21,14 @@ class ConsolasController extends Controller
         $consolas=Consola::all();
         return $consolas;
     }
+    
+    public function filtrarCOnsolas(Request $request){
+        $input = $request->all();
+        $filtro = $input["filtro"];
+        //          Consola::where("campo en la bd,"operacion(<,>,=,etc",otro campo o variable");
+        $consolas = Consola::where("marca","=",$filtro)->get();
+        return $consolas;
+    }
 //Esta funcion va a registrar una consola de ejemplo en la bd
 //MEJORAR ESTO PARA QUE NO SEA UN EJEMPLO
     public function crearConsola(Request $request){
