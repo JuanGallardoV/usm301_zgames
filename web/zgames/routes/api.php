@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConsolasController;
+use App\Http\Controllers\JuegosController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,3 +28,11 @@ Route::get("consolas/filtrar",[ConsolasController::class,"filtrarConsolas"]);
 Route::post("consolas/post",[ConsolasController::class,"crearConsola"]);
 
 Route::post("consolas/delete",[ConsolasController::class,"eliminarConsola"]);
+
+Route::get("juegos/get",[ConsolasController::class,"getJuegos"]);
+
+Route::get("juegos/getByConsola",[ConsolasController::class, "getJuegosByConsola"]);
+
+Route::post("juegos/post",[ConsolasController::class, "save"]);
+
+Route::post("juegos/delete",[ConsolasController::class, "remove"]);

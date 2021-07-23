@@ -14,7 +14,7 @@ class CrearTablaConsolas extends Migration
     public function up()
     {
         Schema::create('consolas', function (Blueprint $table) {
-            $table->id();
+            $table->id();   //Por defecto es bigInteger y unsigned
             $table->string("nombre",150);
             $table->string("marca",50);
             $table->integer("anio");
