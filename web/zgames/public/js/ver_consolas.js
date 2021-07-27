@@ -20,7 +20,7 @@ const iniciarEliminacion = async function(){
         if(await eliminarConsola(id)){
             let consolas = await getConsolas();
             cargarTabla(consolas);
-            Swal.fire("Comsola Eliminada","Consola eliminada exitosamente","info");
+            Swal.fire("Consola Eliminada","Consola eliminada exitosamente","info");
         }else{
             Swal.fire("Error","No se puede atender la solucitud","error");
         }

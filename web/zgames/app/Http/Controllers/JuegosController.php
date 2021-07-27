@@ -12,12 +12,12 @@ class JuegosController extends Controller
     public function getJuegosByConsola(Request $request){
         $input = $request->all();
         $idConsola = $input["idConsola"];
-        $consola = Consola::find($idConsola);
+        $consola = Consola::findOrFail($idConsola);
         return $consola->juegos()->get();      //SELECT J.* FROM juegos J INNER JOIN consolas C ON J.consola_id=C.id WHERE C.id=1 
     }
     //Devolver todos los juegos del sistema
     public function getJuegos(){
-        return Juegos::all();
+        return Juego::all();
     }
     //Crear un nuevo juego
     public function save(Request $request){
@@ -47,4 +47,6 @@ class JuegosController extends Controller
         $juego = Juego::findOrFail($id);
         return "ok";
     }
+    
+    //Hacer el actualizar Juego
 }
